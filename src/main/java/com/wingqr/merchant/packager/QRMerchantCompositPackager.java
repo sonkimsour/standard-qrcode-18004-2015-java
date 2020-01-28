@@ -8,8 +8,8 @@ import com.wingqr.core.packager.QRPackager;
 
 public class QRMerchantCompositPackager extends QRAbstractCompositPackager<Integer> {
 
-	public QRMerchantCompositPackager(Integer fieldId, QRValueType valueType, int length, boolean required, String title, Integer... reference) {
-		super(fieldId, valueType, length, required, title, reference);
+	public QRMerchantCompositPackager(Integer fieldId, QRValueType valueType, int length, boolean required, String title, Integer... references) {
+		super(fieldId, valueType, length, required, title, references);
 	}
 	
 	@Override

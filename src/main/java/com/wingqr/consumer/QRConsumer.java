@@ -13,7 +13,6 @@ import com.wingqr.consumer.packager.QRConsumerCompositPackager;
 import com.wingqr.consumer.template.QRConsumerTemplate;
 import com.wingqr.core.QRAbstract;
 import com.wingqr.core.exception.QRException;
-import com.wingqr.core.field.QRField;
 import com.wingqr.core.field.QRFieldComposit;
 import com.wingqr.core.packager.QRPackager;
 import com.wingqr.core.util.QRUtil;
@@ -34,10 +33,7 @@ public final class QRConsumer extends QRAbstract<String> {
 	
 	public QRConsumer addApplicationTemplate(QRApplicationTemplate template) {
 		String field61 = "61", field63 = "63";
-		if(template == null) {
-			if(this.hasField(field61)) return this;
-			else QRUtil.validateRequired("Application template", template);
-		}
+		if(template == null) QRUtil.validateRequired("Application template", template);
 		QRFieldComposit<String> composit = this.bindAdditionalBERTLVCodedDataObjects(field61, template, this.getPackager(field61));
 		this.setValue(field61, composit);
 		if(template.getApplicationSpecificTransparent() != null) {
@@ -106,10 +102,10 @@ public final class QRConsumer extends QRAbstract<String> {
 	}
 
 	@Override
-	protected String build(Map<String, QRField<String>> fields, ByteArrayOutputStream output) throws IOException {
-		for (String keySet : fields.keySet()) fields.get(keySet).write(output);
+	protected String build(ByteArrayOutputStream output) throws IOException {
 		byte[] bytes = output.toByteArray();
 		if(bytes.length > MAX_BYTE_LENGTH) throw new QRException(String.format("QRCode readers complying support %d bytes of data from the QRCode, actual: %d bytes", MAX_BYTE_LENGTH, bytes.length));
 		return Base64.getEncoder().encodeToString(QRUtil.hexToBytes(new String(bytes)));
 	}
+	
 }

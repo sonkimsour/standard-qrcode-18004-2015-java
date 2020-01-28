@@ -6,7 +6,7 @@ import java.io.IOException;
 import com.wingqr.core.exception.QRException;
 import com.wingqr.core.packager.QRPackager;
 
-public class QRFieldValue<K, V> implements QRField<K> {
+public final class QRFieldValue<K, V> implements QRField<K> {
 	private K fieldId;
 	private V value;
 	private QRPackager<K> packager;
@@ -18,17 +18,21 @@ public class QRFieldValue<K, V> implements QRField<K> {
 	}
 	
 	@Override
-	public K getFieldId() {
+	public final K getFieldId() {
 		return this.fieldId;
 	}
 	
 	@Override
-	public V getValue() {
+	public final V getValue() {
 		return value;
 	}
 	
+	public final QRPackager<K> getPackager() {
+		return packager;
+	}
+	
 	@Override
-	public void write(ByteArrayOutputStream output) {
+	public final void write(ByteArrayOutputStream output) {
 		try {
 			if(this.packager == null) throw new QRException("Unable to find packager for fieldId " + this.fieldId + ", with value " + this.value);
 			if(this.packager.isRequired() && this.value == null) throw new QRException("The fieldId " + this.fieldId + " is required, but the value is null"); 

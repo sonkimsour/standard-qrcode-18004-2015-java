@@ -9,8 +9,8 @@ import com.wingqr.core.packager.QRPackager;
 
 public class QRMerchantAmountPackager extends QRAbstractMerchantPackager {
 
-	public QRMerchantAmountPackager(Integer fieldId, int length, boolean required, String title, Integer... reference) {
-		super(fieldId, QRValueType.AMOUNT, length, required, title, reference);
+	public QRMerchantAmountPackager(Integer fieldId, int length, boolean required, String title, Integer... references) {
+		super(fieldId, QRValueType.AMOUNT, length, required, title, references);
 	}
 	
 	@Override

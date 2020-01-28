@@ -5,8 +5,8 @@ import com.wingqr.core.packager.QRAbstractPackager;
 
 public abstract class QRAbstractMerchantPackager extends QRAbstractPackager<Integer> {
 
-	public QRAbstractMerchantPackager(Integer fieldId, QRValueType valueType, int length, boolean required, String title, Integer... reference) {
-		super(fieldId, valueType, length, required, title, reference);
+	public QRAbstractMerchantPackager(Integer fieldId, QRValueType valueType, int length, boolean required, String title, Integer... references) {
+		super(fieldId, valueType, length, required, title, references);
 	}
 	
 	@Override

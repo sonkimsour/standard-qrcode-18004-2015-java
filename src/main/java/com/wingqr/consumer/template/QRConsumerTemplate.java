@@ -40,8 +40,8 @@ public class QRConsumerTemplate extends QRAbstractTemplate<String> {
 	private void bindAdditionalBERTLVCodedDataObjects(QRConsumerCompositPackager fieldDetails, boolean required) {
 		fieldDetails.addPackager(new QRConsumerAlphaNumPackager("4F", 5, 16, required, "Application Dedicated File (ADF) Name"));
 		fieldDetails.addPackager(new QRConsumerAlphaNumPackager("50", 1, 16, false, "Application Label"));
-		fieldDetails.addPackager(new QRConsumerAlphaNumPackager("57", 19, false, "Track 2 Equivalent Data", "5A"));
-		fieldDetails.addPackager(new QRConsumerLLComNumPackager("5A", 10, false, "Application PAN", "57"));
+		fieldDetails.addPackager(new QRConsumerAlphaNumPackager("57", 19, false, "Track 2 Equivalent Data"));
+		fieldDetails.addPackager(new QRConsumerLLComNumPackager("5A", 10, false, "Application PAN"));
 		fieldDetails.addPackager(new QRConsumerAlphaNumPackager("5F20", 2, 26, false, "Cardholder Name"));
 		fieldDetails.addPackager(new QRConsumerAlphaNumPackager("5F2D", 2, 8, false, "Language Preference"));
 		fieldDetails.addPackager(new QRConsumerAlphaNumPackager("5F50", false, "Issuer URL"));

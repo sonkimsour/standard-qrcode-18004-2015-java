@@ -56,9 +56,9 @@ public final class QRMerchantTemplate extends QRAbstractTemplate<Integer> {
 		this.addPackager(new QRMerchantNumericPackager(52, 4, true, "Merchant Category Code"));
 		this.addPackager(new QRMerchantNumericPackager(53, 3, true, "Transaction Currency"));
 		this.addPackager(new QRMerchantAmountPackager(54, 13, true, "Transaction Amount"));
-		this.addPackager(new QRMerchantNumericPackager(55, 2, false, "Tip or Convenience Indicator"));
-		this.addPackager(new QRMerchantAmountPackager(56, 13, false, "Value of Convenience Fee Fixed", 55));
-		this.addPackager(new QRMerchantAmountPackager(57, 5, false, "Value of Convenience Fee Percentage", 55));
+		this.addPackager(new QRMerchantNumericPackager(55, 2, false, "Tip or Convenience Indicator", 56, 57));
+		this.addPackager(new QRMerchantAmountPackager(56, 13, false, "Value of Convenience Fee Fixed"));
+		this.addPackager(new QRMerchantAmountPackager(57, 5, false, "Value of Convenience Fee Percentage"));
 		this.addPackager(new QRMerchantAlphaNumPackager(58, 2, true, "Country Code"));
 		this.addPackager(new QRMerchantAlphaNumPackager(59, 25, true, "Merchant Name"));
 		this.addPackager(new QRMerchantAlphaNumPackager(60, 15, true, "Merchant City"));

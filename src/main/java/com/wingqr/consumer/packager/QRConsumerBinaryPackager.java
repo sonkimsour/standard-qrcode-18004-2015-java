@@ -21,7 +21,7 @@ public class QRConsumerBinaryPackager extends QRAbstractConsumerPackager {
 
 	@Override
 	public QRField<String> decode(String fieldId, String value, QRPackager<String> packager) {
-		return new QRFieldValue<String, byte[]>(fieldId, value.getBytes(), packager);
+		return new QRFieldValue<String, String>(fieldId, value, packager);
 	}
 	
 }

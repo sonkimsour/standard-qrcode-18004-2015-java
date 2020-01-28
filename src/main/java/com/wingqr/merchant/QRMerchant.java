@@ -244,8 +244,7 @@ public final class QRMerchant extends QRAbstract<Integer> {
 	}
 
 	@Override
-	protected String build(Map<Integer, QRField<Integer>> fields, ByteArrayOutputStream output) throws IOException {
-		for (Integer keySet : fields.keySet()) fields.get(keySet).write(output);
+	protected String build(ByteArrayOutputStream output) throws IOException {
 		output.write(String.format("%02d%02d", FIELD_CHECKSUM, this.getPackager(FIELD_CHECKSUM).getLength()).getBytes());
 		String checksum = QRUtil.getCRC(output.toString());
 		output.write(checksum.getBytes());

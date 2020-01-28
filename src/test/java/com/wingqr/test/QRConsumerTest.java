@@ -19,8 +19,9 @@ public class QRConsumerTest {
 		//qrcode.addApplicationTemplate(bindApplicationTemplate2());
 		///qrcode.setCommonDataTemplate(bindCommonDataTemplate());
 		System.out.println("***************** QRCODE DETAILS *****************");
-		System.out.println("BASE64: " + qrcode.pack());
-		System.out.println("HEX: " + QRUtil.byteToHex(Base64.getDecoder().decode(qrcode.pack())));
+		String qrString = qrcode.pack();
+		System.out.println("BASE64: " + qrString);
+		System.out.println("HEX: " + QRUtil.byteToHex(Base64.getDecoder().decode(qrString)));
 		System.out.println("**************************************************");
 	}
 
